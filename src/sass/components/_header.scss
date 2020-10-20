@@ -1,0 +1,308 @@
+.header {
+  position: absolute;
+  z-index: 999;
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  display: block;
+  min-width: $width_mobile;
+  width: 100%;
+  // height: 130px;
+  padding: 0 15px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.header__container {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1280px;
+  // position: relative;
+  // @extend %container;
+  @include CenteredFlex($justify: space-between);
+  // justify-content: space-between;
+  // padding: 1rem 1.5rem;
+  @include for-size(mobile) {
+    padding: 6px 0;
+  }
+
+  @include for-size(tablet) {
+    padding: 37px 34px 0 34px;
+  }
+  @include for-size(desktop) {
+    padding: 37px 30px 0 30px;
+  }
+}
+
+.header__container img {
+  display: block;
+}
+.header__logo {
+  display: block;
+  min-width: 200px;
+  width: 200px;
+  height: 50px;
+  // margin-left: 46px;
+  // filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  // transition: filter transition-duration(500ms) ease;
+  // &:hover,
+  // &:focus {
+  // filter: drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.4));
+  // }
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+  margin-left: 61px;
+
+  @include for-size(tablet) {
+    margin-left: 291px;
+  }
+
+  @include for-size(desktop) {
+    margin-left: 110px;
+  }
+  // width: 100%;
+  // outline: 1px solid red;
+}
+
+.header__menu {
+  opacity: 1;
+  visibility: visible;
+  min-width: 250px;
+  // outline: 1px solid blue;
+  // color: red;
+  @include for-size(mobile-only) {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: block;
+    height: 100vh;
+    padding: 35px;
+    background-color: $color_header_popup-menu_bg;
+  }
+  @include for-size(mobile) {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: block;
+    height: 100vh;
+    padding: 35px;
+    padding-top: 60px;
+    background-color: $color_header_popup-menu_bg;
+  }
+  @include for-size(tablet) {
+    opacity: 1;
+    visibility: visible;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: block;
+    height: 100vh;
+    padding: 35px;
+    padding-top: 60px;
+    background-color: $color_header_popup-menu_bg;
+  }
+  @include for-size(desktop) {
+    @include CenteredFlex();
+    margin-right: 110px;
+  }
+}
+.is-hidden--menu {
+  opacity: 0;
+  visibility: hidden;
+  @include for-size(desktop) {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.header__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+  @media screen and (max-width: 1199px) {
+    flex-direction: column;
+  }
+}
+.header__list li {
+  display: block;
+  margin: 0 35px 0 0;
+  &:last-child {
+    margin: 0;
+  }
+  @media screen and (max-width: 1199px) {
+    margin: 0;
+
+    vertical-align: middle;
+    height: 42px;
+    border-top: 1px solid #e18298;
+    &:last-child {
+      border-bottom: 1px solid #e18298;
+    }
+  }
+}
+.header__menu__link {
+  // outline: 1px solid blue;
+
+  display: block;
+  height: 100%;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  // margin: 0px 0px 23px -11px;
+  &:last-child() {
+    margin-bottom: 0px;
+  }
+
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1.25;
+
+  @include for-size(mobile) {
+    @include CenteredFlex($justify: flex-start);
+    // margin: 0px 0px 23px -11px;
+    // &:last-child() {
+    //   margin-bottom: 0px;
+    // }
+  }
+  @include for-size(tablet) {
+    @include CenteredFlex($justify: flex-start);
+    // margin: 0px 0px 23px -11px;
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+  @include for-size(desktop) {
+    @include CenteredFlex();
+    margin: 0px;
+    margin-right: 35px;
+    &:last-child {
+      margin: 0px;
+    }
+  }
+  &,
+  &:visited {
+    color: $color_active-0;
+  }
+  &.current {
+    color: $color_active-1;
+    // text-shadow: 1px 1px 2px black;
+  }
+  &:hover {
+    color: $color_active-1;
+  }
+}
+
+.header__burger-open {
+  width: 20px;
+  height: 12px;
+  padding: 0px;
+  @include CenteredFlex();
+  color: $color_active-1;
+  background-color: transparent;
+  outline: 0px solid $color_active-1;
+  border: none;
+  &:hover {
+    outline-width: 1px;
+  }
+  @include for-size(tablet) {
+    margin-right: 30px;
+  }
+  @include for-size(desktop) {
+    display: none;
+  }
+}
+
+.header__burger-open use {
+  width: 100%;
+  height: 100%;
+}
+.header__burger-close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 14px;
+  height: 14px;
+  padding: 0px;
+  @include CenteredFlex();
+  color: $color_active-0;
+  background-color: transparent;
+  outline: 0px solid $color_active-1;
+  border: none;
+  &:hover {
+    outline-width: 1px;
+  }
+  @include for-size(desktop) {
+    display: none;
+  }
+
+  .is-hidden--menu .header__btn--popup {
+    width: 250px;
+    @media screen and (min-width: 768px) {
+      min-width: 254px;
+    }
+  }
+  padding: 0;
+  margin: 0;
+}
+.header__btn {
+  display: none;
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 700;
+  color: $color_active-1;
+  background-color: $color_button-light_bg;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  cursor: pointer;
+  &:hover {
+    background-color: $color_button-light_hover_bg;
+  }
+  @include for-size(tablet) {
+    @include CenteredFlex();
+    width: 160px;
+    height: 44px;
+    border-radius: 22px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 1);
+  }
+  @include for-size(desktop) {
+    @include CenteredFlex();
+    width: 160px;
+    height: 44px;
+    border-radius: 22px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 1);
+  }
+}
+.header__btn--popup {
+  // display: none;
+  @include CenteredFlex();
+  width: 210px;
+  height: 44px;
+  border-radius: 22px;
+  overflow: hidden;
+  margin: 0px 0px 32px;
+  color: $color_active-1;
+  background-color: rgba(255, 255, 255, 1);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  @include for-size(desktop) {
+    display: none;
+  }
+  &:hover {
+    background-color: #ecebeb;
+  }
+}
+.header__button--icon {
+  width: 8px;
+  height: 8px;
+  margin-left: 12px;
+}
+.menu--icon {
+  width: 100%;
+  height: 100%;
+}
+
+.header__btn--popup,
+.header__btn {
+  font-weight: 700;
+  font-size: 16px;
+}

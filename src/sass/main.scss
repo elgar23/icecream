@@ -1,0 +1,23 @@
+/*
+ * Главный файл стилей.
+ * Все паршалы подключаются сюда.
+ */
+// Стили для файла с примером HTML-фрагмента
+@import './utils/variables';
+@import './utils/fonts';
+@import './utils/placeholders';
+@import './utils/mixins';
+@import './utils/normalize.scss';
+
+@import './components/common.scss';
+@import './components/header.scss';
+@import './components/hero.scss';
+
+// @import './components/_m-hero.scss';
+
+@import './components/tradition';
+@import './components/natural-product';
+@import './components/tradition';
+@import './components/collage&quote';
+@import './components/location';
+@import './components/footer';
